@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>client - views</title>
+</head>
+
+<header>
+    <h1>HALCON</h1>
+    <nav>
+        <a href="/halcon-user">USUERS</a>
+        <a href="/halcon-client">CLIENTS</a>
+    </nav>
+</header>
+
+<body>
+    <form id="form">
+        <span>CLIENT</span>
+
+        <input type="text" id="clientNum" placeholder="Enter your ID">
+        <input type="text" id="invoiceNum" placeholder="Enter your INVOICE">
+
+        <button type="submit">SUBMIT</button>
+    </form>
+
+    <div id="order-list"></div>
+    <script src="/clientView.js"></script>
+</body>
+</html>
