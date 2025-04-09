@@ -46,7 +46,7 @@ const putUser = async (req, res) => {
         }
 
         const updateUser = await User.findById(req.params.id)
-        res.status(200).json({message: "Usuario actualizado/modificado con exito", updateUser})
+        res.status(200).json(updateUser)
     } catch (error) {
         res.status(500).json({messege: error.messege})
     }
@@ -71,7 +71,7 @@ const deleteUser = async (req, res) => {
 const getUsers = async (req, res) => {
     try {
         const users = await User.find({})  
-        res.status(200).json({users})
+        res.status(200).json(users)
     } catch (error) {
         res.status(500).json({messege: error.messege})
     }

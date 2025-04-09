@@ -1,95 +1,141 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("form-admin")
-    const orderList = document.getElementById("order-list")
+    const form = document.getElementById("form")
+    const userList = document.getElementById("list")
 
     if(!form) {
         console.error("Formulario no encontrado")
     }
 
-    if(!orderList) {
+    if(!userList) {
         console.error("No se encontro la lista")
     }
 
-    fetchOrder()
+    fetchUsers()
 
     form.addEventListener("submit", async (event) => {
         event.preventDefault()
 
-        const name = document.getElementById("name").value
-        const taxInfo = document.getElementById("taxInfo").value
-        const state = document.getElementById("state").value
-        const city = document.getElementById("city").value
-        const street = document.getElementById("street").value
-        const productNotes = document.getElementById("productNotes").value
+        const email = document.getElementById("email").value
+        const password = document.getElementById("password").value
+        const username = document.getElementById("username").value
+        const role = document.getElementById("role").value
 
-        if(!name || !taxInfo || !state || !city || !street || !productNotes) {
+        if(!email || !password || !username || !role ) {
             alert("debes de ingresar todos los campos")
             return
         }
 
-        const order = {
-            name,
-            taxInfo,
-            state,
-            city,
-            street,
-            productNotes
+        const user = {
+            email, password, username, role
         }
 
         try {
-            const response = await fetch("/halcon/order/orderPost", {
+            const response = await fetch("/halcon/user/create", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(order)
+                body: JSON.stringify(user)
             })
 
-            const orderData = await response.json()
+            const userData = await response.json()
 
             if (response.ok) {
                 form.reset() 
-                fetchOrder()
+                fetchUsers()
             } else {
-                alert(`error: ${orderData.message}`)
+                alert(`error: ${userData.message}`)
             }
         } catch (error) {
             console.error("error al enviar los datos: ", error)
         }
     })
 
-    async function fetchOrder() {
-        orderList.innerHTML = ""
-        const response = await fetch("/halcon/order/orderGet")
-        const orders = await response.json()
+    async function fetchUsers() {
+        userList.innerHTML = ""
+        const response = await fetch("/halcon/user/getUsers")
+        const users = await response.json()
 
-        orders.forEach((order) => {
-            const orderInfo = document.createElement("div")
-            orderInfo.innerHTML = `
+        users.forEach((User) => {
+            const userInfo = document.createElement("div")
+            userInfo.innerHTML = `
             <table>
                 <tr>
-                    <td>Name: </td>
-                    <td>${order.name}</td>
+                    <td>Email: </td>
+                    <td>${User.email}</td>
                 </tr>
 
                 <tr>
-                    <td>Tax Info: </td>
-                    <td>${order.taxInfo}</td>
+                    <td>Password: </td>
+                    <td>${User.password}</td>
                 </tr>
 
                 <tr>
-                    <td>Address</td>
-                    <td>${order.state}, ${order.city}, ${order.street}</td>
+                    <td>Username: </td>
+                    <td>${User.username}</td>
                 </tr>
                 
                 <tr>
-                    <td>Products Order</td>
-                    <td>${order.productNotes}</td>
+                    <td>Role: </td>
+                    <td>${User.role}</td>
+                </tr>
+
+                <tr>
+                    <td>Created at: </td>
+                    <td>${User.dateCreated}</td>
+                </tr>
+                
+                <tr>
+                    <td>Status: </td>
+                    <td>${User.active}</td>
                 </tr>
             </table>
 
+            <button onclick="editUser('${User._id}')">Editar</button>
+            <button onclick="deleteUser('${User._id}')">Eliminar</button>
+
             <p>-----------------------------------------</p>
             `
-            orderList.appendChild(orderInfo)
-            
+            userList.appendChild(userInfo)
         })
+
+        window.editUser = async (id) => {
+            const newEmail = prompt("New email:")
+            const newPassword = prompt("New password:")
+            const newUsername = prompt("New username:")
+            const newRole = prompt("New role:")
+    
+            if (newEmail && newPassword && newUsername && newRole) {
+                const response = await fetch(`/halcon/user/update/${id}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        email: newEmail,
+                        password: newPassword,
+                        username: newUsername,
+                        role: newRole
+                    })
+                })
+    
+                if (response.ok) {
+                    fetchUsers()
+                } else {
+                    console.error("Error al actualizar el User")
+                }
+            }
+        }
+
+        window.deleteUser = async (id) => {
+            const confirmation = confirm("¿Estás seguro de que deseas eliminar este User?")
+            if (confirmation) {
+                const response = await fetch(`/halcon/user/delete/${id}`, {
+                    method: "DELETE"
+                })
+
+                if (response.ok) {
+                    fetchUsers()
+                } else {
+                    console.error("Error al eliminar el User")
+                }
+            }
+        }   
     }
 })

@@ -3,8 +3,13 @@ const paths = require("./config/path")
 const userRoute = require("./routes/userRoute")
 const clientRoute = require("./routes/clientRoute")
 const inventoryRoute = require("./routes/inventoryRoute")
+// CONEXION A LA DB Y CREACION DE ADMIN Y PRODUCTOS
 const connectDB = require("./config/connectDB")
+const defaultAdmin = require("./utils/createDefaultAdmin")
+const defaultProducts = require("./utils/createDefaultProduct")
 connectDB()
+defaultAdmin()
+defaultProducts()
 
 const app = express()
 app.use(express.json())
