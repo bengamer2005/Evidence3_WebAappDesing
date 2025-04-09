@@ -3,6 +3,7 @@ const paths = require("./config/path")
 const userRoute = require("./routes/userRoute")
 const clientRoute = require("./routes/clientRoute")
 const inventoryRoute = require("./routes/inventoryRoute")
+const requestRoute = require("./routes/requestRoute")
 // CONEXION A LA DB Y CREACION DE ADMIN Y PRODUCTOS
 const connectDB = require("./config/connectDB")
 const defaultAdmin = require("./utils/createDefaultAdmin")
@@ -23,6 +24,7 @@ app.listen(port, () => {
 app.use("/halcon", userRoute)
 app.use("/halcon", clientRoute)
 app.use("/halcon", inventoryRoute)
+app.use("/halcon", requestRoute)
 
 // SCRIPTS
 app.use("/", express.static(paths.LandingPageScripts))

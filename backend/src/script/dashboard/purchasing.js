@@ -1,44 +1,48 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("form-client")
+    const tableProduct = document.querySelector("#product-table tbody")
 
-    if(!form) {
-        console.error("Formulario no encontrado")
-        return
+    if(!tableProduct) {
+        return console.error("No se encotro la tabla")
     }
 
-    form.addEventListener("submit", async (event) => {
-        event.preventDefault()
+    fetchProducts()
 
-        const clientNum = document.getElementById("clientNum").value
-        const invoiceNum = document.getElementById("invoiceNum").value
+    async function fetchProducts() {
+        tableProduct.innerHTML= ""
+        const response = await fetch("/halcon/inventory/products")
+        const inventory = await response.json()
 
-        if(!clientNum || !invoiceNum) {
-            alert("debes de ingresar todos los campos")
-            return
-        }
+        inventory.forEach((product) => {
+            const productList = document.createElement("tr")
 
-        const client = {
-            clientNum,
-            invoiceNum
-        }
+            productList.innerHTML = `
+                <td>${product.productId}</td>
+                <td>${product.productName}</td>
+                <td>${product.productUnit}</td>
+                <button onclick="addUnit('${product._id}')">Add units</button>
+            `
 
-        try {
-            const response = await fetch("/halcon/order/orderInfo", {
+            tableProduct.appendChild(productList)
+        })
+    }
+
+    window.addUnit = async (id) => {
+        const addUnits = prompt("Units to add:")
+
+        if(addUnits) {
+            const response = await fetch(`/halcon/inventory/productAdd/${id}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(client)
+                body: JSON.stringify({
+                    productUnit: addUnits
+                })
             })
 
-            const clientData = await response.json()
-
-            if(response.ok) {
-                // cambiar direccion si es necesario
-                window.location.href = "halcon-client/order"
+            if (response.ok) {
+                fetchProducts()
             } else {
-                alert(`error: ${clientData.message}`)
+                console.error("Error al actualizar el inventario")
             }
-        } catch (error) {
-            console.error("error al enviar los datos: ", error)
         }
-    })
+    }
 })
