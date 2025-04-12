@@ -1,7 +1,16 @@
 # Evidence3_WebAappDesing
+> [!IMPORTANT]
+> user admin :
+> email: admin@admin
+> password: 123123
+> username: Erick Estrada
+> role: Admin
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
+## BACKEND
+
+## FRONTEND
+
+
 
 > [!TIP]
 > Helpful advice for doing things better or more easily.
@@ -13,8 +22,4 @@
 > Urgent info that needs immediate user attention to avoid problems.
 
 > [!CAUTION]
-<<<<<<< HEAD
 > Advises about risks or negative outcomes of certain actions.
-=======
-> Advises about risks or negative outcomes of certain actions.
->>>>>>> b975eb78fe8980f67d9dec7daaefe61d4dd4a232
