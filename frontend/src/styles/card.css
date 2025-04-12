@@ -1,59 +1,61 @@
-.card {
-    position: relative;
-    width: 220px;
-    height: 320px;
-    background: rgb(148, 154, 154);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: bold;
-    border-radius: 15px;
-    cursor: pointer;
-}
-
 .cards {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 2.5%;
 }
 
-.card::before,
-.card::after {
-    position: absolute;
-    content: "";
-    width: 20%;
-    height: 20%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 25px;
-    font-weight: bold;
-    background-color: rgb(175, 184, 187);
-    transition: all 0.5s;
+.card {
+    background-color: #4b4b4b;
+    width: 320px;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    font-family: sans-serif;
 }
 
-.card::before {
-    top: 0;
-    right: 0;
-    border-radius: 0 15px 0 100%;
+.top-section {
+    background-color: #222;
+    height: 180px;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 1em;
+    overflow: hidden;
 }
 
-.card::after {
-    bottom: 0;
-    left: 0;
-    border-radius: 0 100%  0 15px;
+.top-section a {
+    display: block;
+    height: 100%;
 }
 
-.card:hover::before,
-.card:hover:after {
+.main-img {
     width: 100%;
     height: 100%;
-    border-radius: 15px;
-    transition: all 0.5s;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
-.card:hover:after {
-    content: "HELLO";
+.main-img:hover {
+    transform: scale(1.02);
+}
+
+.text-section {
+    color: white;
+    margin-bottom: 1em;
+}
+
+.title {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.subtitle {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.definition {
+    font-size: 1.1em;
+    color: rgb(255, 255, 255);
 }

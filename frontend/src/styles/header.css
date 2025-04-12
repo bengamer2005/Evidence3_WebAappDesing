@@ -30,9 +30,6 @@ header {
   background-size: var(--s) var(--s);
 }
 
-
-
-
 nav {
     display: flex;
     justify-content: center;
@@ -53,8 +50,6 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #e0c7254b;
+    background-color: #cd75754b;
     transition-property: background_color;
-    transition-duration: 1s;
-    transform: translate(0px, 10px)
 }
