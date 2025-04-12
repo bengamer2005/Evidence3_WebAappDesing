@@ -1,14 +1,14 @@
 # Evidence3_WebAappDesing
 > [!IMPORTANT]
-> user admin :
-> email: admin@admin
-> password: 123123
-> username: Erick Estrada
+> user para iniciar sesion con admin
+> email: admin@admin |
+> password: 123123 |
+> username: Erick Estrada |
 > role: Admin
 
-## BACKEND
+### BACKEND
 
-## FRONTEND
+### FRONTEND
 
 
 
