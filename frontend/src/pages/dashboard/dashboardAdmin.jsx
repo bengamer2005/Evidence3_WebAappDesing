@@ -1,6 +1,9 @@
 import React from "react"
 import Header from "../../components/header"
 import Card from "../../components/card"
+import editUser from "../../img/editUser.png"
+import seeUsers from "../../img/seeUsers.png"
+import seeOrders from "../../img/seeOrders.png"
 
 const DashboardAdmin = () => {
     return (
@@ -17,21 +20,21 @@ const DashboardAdmin = () => {
 
                 <Card 
                     link = "/halcon-user/dashboard-admin/edit-user"
-                    img = "https://raw.githubusercontent.com/bengamer2005/Evidence3_WebAappDesing/refs/heads/main/img/editUser.png?token=GHSAT0AAAAAAC65LQZPU6P66HDIAO2IPBDGZ72VT6Q"
+                    img = {editUser}
                     role = "EDIT" 
                     description = "Aqui estara la descripcion de edit">
                 </Card>
 
                 <Card 
                     link = "/halcon-user/dashboard-admin/see-user"
-                    img = "https://raw.githubusercontent.com/bengamer2005/Evidence3_WebAappDesing/refs/heads/main/img/seeOrders.png?token=GHSAT0AAAAAAC65LQZOVSWAMBHXB2JEOBIOZ72VUUA"
+                    img = {seeUsers}
                     role = "SEE USERS" 
                     description = "Aqui estara la descripcion see users">
                 </Card>
 
                 <Card 
                     link = "/halcon-user/dashboard-admin/see-order"
-                    img = "https://raw.githubusercontent.com/bengamer2005/Evidence3_WebAappDesing/refs/heads/main/img/seeUsers.png?token=GHSAT0AAAAAAC65LQZONB66XCOD3NULT4ZGZ72VU5A"
+                    img = {seeOrders}
                     role = "SEE ORDERS" 
                     description = "Aqui estara la descripcion see orders">
                 </Card>
