@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require("cors")
 const paths = require("./config/path")
 const userRoute = require("./routes/userRoute")
 const clientRoute = require("./routes/clientRoute")
@@ -14,6 +15,11 @@ defaultProducts()
 
 const app = express()
 app.use(express.json())
+
+// CONECTA MI FRONTEND CON MI BACKEND, Y PERMITE LAS PETICIONES
+app.use(cors({
+    origin: "http://localhost:5173"
+}))
 
 const port = 3000
 app.listen(port, () => {
