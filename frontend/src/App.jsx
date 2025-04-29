@@ -11,7 +11,11 @@ import Purchasing from "./pages/dashboard/user/purchasing"
 import Sales from "./pages/dashboard/user/sales"
 import Warehouse from "./pages/dashboard/user/warehouse"
 import RouteUser from "./pages/dashboard/user/route"
-
+// admin
+import CreateUser from "./pages/dashboard/admin/create"
+import EditUser from "./pages/dashboard/admin/edit"
+import SeeUsers from "./pages/dashboard/admin/seeOrders"
+import SeeOrders from "./pages/dashboard/admin/seeOrders"
 
 const App = () => {
   return (
@@ -20,14 +24,19 @@ const App = () => {
             {/* Rutas para la landingpage */}
             <Route path="/" element={<ClientView/>}/>
             <Route path="/halcon-user" element={<UserViews/>}/>
-             {/* Rutas para los dashboards */}
+            {/* Rutas para los dashboards */}
             <Route path="/halcon-user/dashboard-user" element={<DashboardUser/>}/>
             <Route path="/halcon-user/dashboard-admin" element={<DashboardAdmin/>}/>
-             {/* Rutas para las cards de los users */}
+            {/* Rutas para las cards de los users */}
             <Route path="/halcon-user/dashboard-user/purchasing" element={<Purchasing/>}/>
             <Route path="/halcon-user/dashboard-user/sales" element={<Sales/>}/>
             <Route path="/halcon-user/dashboard-user/warehouse" element={<Warehouse/>}/>
             <Route path="/halcon-user/dashboard-user/route" element={<RouteUser/>}/>
+            {/* Rutas para las cards de los admin */}
+            <Route path="/halcon-user/dashboard-admin/create-user" element={<CreateUser/>}/>
+            <Route path="/halcon-user/dashboard-admin/edit-user" element={<EditUser/>}/>
+            <Route path="/halcon-user/dashboard-admin/see-user" element={<SeeUsers/>}/>
+            <Route path="/halcon-user/dashboard-admin/see-order" element={<SeeOrders/>}/>
         </Routes>
     </BrowserRouter>
   )
