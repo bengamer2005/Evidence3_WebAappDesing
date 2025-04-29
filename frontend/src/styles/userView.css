@@ -1,0 +1,197 @@
+.container {
+    width: 100%;
+    height: auto;
+    background-color: #0f172a;
+    background-image: linear-gradient(
+        45deg,
+        rgba(59, 130, 246, 0.08) 25%,
+        transparent 25%,
+        transparent 75%,
+        rgba(59, 130, 246, 0.08) 75%
+      ),
+      linear-gradient(
+        -45deg,
+        rgba(59, 130, 246, 0.08) 25%,
+        transparent 25%,
+        transparent 75%,
+        rgba(59, 130, 246, 0.08) 75%
+      ),
+      linear-gradient(
+        45deg,
+        transparent 40%,
+        rgba(99, 102, 241, 0.1) 40%,
+        rgba(99, 102, 241, 0.1) 60%,
+        transparent 60%
+      ),
+      linear-gradient(
+        -45deg,
+        transparent 40%,
+        rgba(99, 102, 241, 0.1) 40%,
+        rgba(99, 102, 241, 0.1) 60%,
+        transparent 60%
+      ),
+      radial-gradient(circle at 50% 50%, #1e293b 0%, #0f172a 100%);
+    background-size:
+      60px 60px,
+      60px 60px,
+      120px 120px,
+      120px 120px,
+      100% 100%;
+    background-position:
+      0 0,
+      30px 30px,
+      0 0,
+      60px 60px,
+      0 0;
+    position: relative;
+}
+  
+.container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 10px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        rgba(255, 255, 255, 0.03) 1px,
+        transparent 1px,
+        transparent 10px
+      );
+    background-size: 20px 20px;
+    filter: blur(0.5px);
+}
+
+header {
+color: #fff;
+padding: 1%;
+}
+
+.form-box {
+    max-width: 300px;
+    background: #f1f7fe;
+    overflow: hidden;
+    border-radius: 16px;
+    color: #010101;
+    box-shadow: rgb(0 0 0 / 8%) 0 2px 4px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 82vh;
+    width: auto;
+    max-height: auto;
+    max-width: 100%;
+}
+  
+.form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 24px 24px;
+    gap: 16px;
+    text-align: center;
+}
+  
+  /*Form text*/
+.title {
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+  
+.subtitle {
+    font-size: 1rem;
+    color: #666;
+}
+  
+  /*Inputs box*/
+.form-container {
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 1rem 0 .5rem;
+    width: 100%;
+}
+  
+.numCliente {
+    background: none;
+    border: 0;
+    outline: 0;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    font-size: .9rem;
+    padding: 8px 15px;
+}
+
+.NumFactura {
+    background: none;
+    border: 0;
+    outline: 0;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    font-size: .9rem;
+    padding: 8px 15px;
+}
+  
+.form-section {
+    padding: 16px;
+    font-size: .85rem;
+    background-color: #e0ecfb;
+    box-shadow: rgb(0 0 0 / 8%) 0 -1px;
+}
+  
+.form-section a {
+    font-weight: bold;
+    color: #0066ff;
+    transition: color .3s ease;
+}
+  
+.form-section a:hover {  
+    color: #005ce6;
+    text-decoration: underline;
+}
+  
+  /*Button*/
+.form button {
+    background-color: #0066ff;
+    color: #fff;
+    border: 0;
+    border-radius: 24px;
+    padding: 10px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .3s ease;
+}
+  
+.form button:hover {
+    background-color: #005ce6;
+}
+
+.sign-up-label {
+  margin: 0;
+  font-size: 10px;
+  color: #747474;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.sign-up-link {
+  margin-left: 1px;
+  font-size: 11px;
+  text-decoration: underline;
+  text-decoration-color: teal;
+  color: teal;
+  cursor: pointer;
+  font-weight: 800;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}

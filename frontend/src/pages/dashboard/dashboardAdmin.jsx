@@ -4,6 +4,7 @@ import Card from "../../components/card"
 import editUser from "../../img/editUser.png"
 import seeUsers from "../../img/seeUsers.png"
 import seeOrders from "../../img/seeOrders.png"
+import createUser from "../../img/createUser.png"
 
 const DashboardAdmin = () => {
     return (
@@ -13,7 +14,7 @@ const DashboardAdmin = () => {
             <div className="cards">
                 <Card 
                     link = "/halcon-user/dashboard-admin/create-user"
-                    img = "https://www.evirtualplus.com/wp-content/uploads/2021/07/como-crear-manualmente-usuarios-en-moodle.png"
+                    img = {createUser}
                     role = "CREATE" 
                     description = "Aqui estara la descripcion de create">
                 </Card>
