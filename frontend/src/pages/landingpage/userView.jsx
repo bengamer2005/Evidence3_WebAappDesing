@@ -14,6 +14,7 @@ const UserViews = () => {
 
                     <div className="form-container">
                         <input type="email" id="email" className="NumFactura" placeholder="Email"/>
+                        <input type="text" id="username" className="NumFactura" placeholder="Username"/>
                         <input type="password" id="password" className="NumFactura" placeholder="Password"/>
                         <input type="role" id="role" className="NumFactura" placeholder="Role"/>
                     </div>
