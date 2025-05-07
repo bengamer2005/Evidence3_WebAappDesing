@@ -16,6 +16,8 @@ import CreateUser from "./pages/dashboard/admin/create"
 import EditUser from "./pages/dashboard/admin/edit"
 import SeeUsers from "./pages/dashboard/admin/seeOrders"
 import SeeOrders from "./pages/dashboard/admin/seeOrders"
+// client
+import Client from "./pages/client/clientView"
 
 const App = () => {
   return (
@@ -37,6 +39,8 @@ const App = () => {
             <Route path="/halcon-user/dashboard-admin/edit-user" element={<EditUser/>}/>
             <Route path="/halcon-user/dashboard-admin/see-user" element={<SeeUsers/>}/>
             <Route path="/halcon-user/dashboard-admin/see-order" element={<SeeOrders/>}/>
+            {/* Rutas para los clients */}
+            <Route path="/halcon-client" element={<Client/>}/>
         </Routes>
     </BrowserRouter>
   )
