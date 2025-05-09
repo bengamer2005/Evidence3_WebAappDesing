@@ -33,12 +33,12 @@ const ClientView = () => {
             <Header/>
             <main>
                 <form id="form" className="form" onSubmit={handleLogin}>
-                    <span className="title">PEDIDOS</span>
-                    <span className="subtitle"> Checa tus pedidos con tu informacion</span>
+                    <span className="title">ORDERS</span>
+                    <span className="subtitle">check your orders with your information</span>
 
                     <div className="form-container">
                         <input type="text" className="numCliente" placeholder="Client ID: HALCON-NAME-123-123" value={clientNum} onChange={(event) => setClientNum(event.target.value)}/>
-                        <input type="text" className="NumFactura" placeholder="Inoice: HALCON-123-123" value={invoiceNum} onChange={(event) => setInvoiceNum(event.target.value)}/>
+                        <input type="text" className="NumFactura" placeholder="Invoice: HALCON-123-123" value={invoiceNum} onChange={(event) => setInvoiceNum(event.target.value)}/>
                     </div>
 
                     <button type="submit" id="submit" className="submit">SUBMIT</button>
