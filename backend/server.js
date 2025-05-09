@@ -20,6 +20,7 @@ app.use(cors({
     origin: "http://localhost:5173"
 }))
 
+// SE ASIGNA PUERTO PARA EL BACKEND
 const port = 3000
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}/halcon-client`)

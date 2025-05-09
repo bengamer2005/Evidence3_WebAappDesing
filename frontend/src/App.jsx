@@ -14,7 +14,7 @@ import RouteUser from "./pages/dashboard/user/route"
 // admin
 import CreateUser from "./pages/dashboard/admin/create"
 import EditUser from "./pages/dashboard/admin/edit"
-import SeeUsers from "./pages/dashboard/admin/seeOrders"
+import SeeUsers from "./pages/dashboard/admin/seeUsers"
 import SeeOrders from "./pages/dashboard/admin/seeOrders"
 // client
 import Client from "./pages/client/clientView"

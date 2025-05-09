@@ -3,7 +3,7 @@ import { Link } from "react-router"
 import { useNavigate } from "react-router"
 import Header from "../../components/header"
 import Login from "../../services/loginUser"
-import "../../styles/UserView.css"
+import "../../styles/userView.css"
 
 const UserViews = () => {
     const [email, setEmail] = useState("")
