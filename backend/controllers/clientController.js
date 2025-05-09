@@ -1,4 +1,6 @@
 const Client = require("../models/clientModel")
+const jwt = require("jsonwebtoken")
+const SECRET_KEY = "mi_clave_secreta"
 
 // Login para el client 
 const getOrder = async (req, res) => {
@@ -12,9 +14,16 @@ const getOrder = async (req, res) => {
         const order = await Client.findOne({clientNum, invoiceNum})
         if (!order) {
             return res.status(404).json({error: "Orden no encontrada" })
-        } else {
-            return res.status(200).json({ message: "Orden encontrada con exito", order })
         }
+
+        const token = jwt.sign({
+            clientNum: order.clientNum,
+            invoiceNum: order.invoiceNum
+        }, SECRET_KEY, {
+            expiresIn: "2h"
+        })
+
+        return res.status(200).json({message: "Inicio de sesion exitoso, token: ", token})
     } catch (error) {
         res.status(500).json({error: error.message})
     }

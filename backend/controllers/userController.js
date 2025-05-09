@@ -1,4 +1,6 @@
 const User = require("../models/userModel")
+const jwt = require("jsonwebtoken")
+const SECRET_KEY = "mi_clave_secreta"
 
 // login para un user 
 const getUser = async (req, res) => {
@@ -12,9 +14,18 @@ const getUser = async (req, res) => {
         const user = await User.findOne({email, password, username, role})
         if (!user) {
             return res.status(404).json({error: "Usuario no encontrado" })
-        } else {
-            return res.status(200).json({ message: "Inicio de sesión exitoso", user })
         }
+
+        const token = jwt.sign({
+            id: user._id,
+            email: user.email,
+            username: user.username,
+            role: user.role
+        }, SECRET_KEY, {
+            expiresIn: "2h"
+        })
+
+        return res.status(200).json({message: "inicio de sesion exitoso, token: ", token})
     } catch (error) {
         res.status(500).json({error: error.message})
     }
