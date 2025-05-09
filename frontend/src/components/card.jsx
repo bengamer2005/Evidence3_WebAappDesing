@@ -1,6 +1,6 @@
 import React from "react"
-import "../styles/card.css"
 import { Link } from "react-router"
+import "../styles/card.css"
 
 const Card = (user) => {
     return (

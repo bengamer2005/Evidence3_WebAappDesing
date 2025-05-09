@@ -14,42 +14,33 @@ const Order = () => {
     }, [])
 
     return (
-        <div>
-            {orders.map((order, index) => (
-                <div key={index}>
-                <table>
+        <>
+         <div>
+                <table className="users-table" border="1" cellPadding="10">
+                    <thead>
+                        <tr>
+                            <th>NAME</th>
+                            <th>TAX INFO</th>
+                            <th>ADDRESS</th>
+                            <th>PRODUCTS ORDERS</th>
+                            <th>CLIENT INFO</th>
+                        </tr>
+                    </thead>
+
                     <tbody>
-                        <tr>
-                            <td>Name: </td>
-                            <td>{order.name}</td>
-                        </tr>
-
-                        <tr>
-                            <td>Tax Info: </td>
-                            <td>{order.taxInfo}</td>
-                        </tr>
-
-                        <tr>
-                            <td>Address</td>
-                            <td>{order.street}, {order.city}, {order.state}</td>
-                        </tr>
-
-                        <tr>
-                            <td>Products Order</td>
-                            <td>{order.productNotes}</td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Client info</td>
-                            <td>{order.clientNum}</td>
-                            <td>{order.invoiceNum}</td>
-                        </tr>
+                        {orders.map((order) => (
+                            <tr key={order._id}>
+                                <td>{order.name}</td>
+                                <td>{order.taxInfo}</td>
+                                <td>{order.street}, {order.city}, {order.state}</td>
+                                <td>{order.productNotes}</td>
+                                <td>{order.clientNum}, {order.invoiceNum}</td>
+                            </tr>
+                        ))}
                     </tbody>
                 </table>
-                    <p>------------------------------------------------------------------------------------------------------</p>
-                </div>
-            ))}
-        </div>
+            </div>
+        </>
     )
 }
 

@@ -3,7 +3,7 @@ import { Link } from "react-router"
 import { useNavigate } from "react-router"
 import Header from "../../components/header"
 import Login from "../../services/loginClient"
-import "../../styles/UserView.css"
+import "../../styles/userView.css"
 
 const ClientView = () => {
     const [clientNum, setClientNum] = useState("")
