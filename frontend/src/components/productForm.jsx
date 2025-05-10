@@ -5,10 +5,10 @@ const ProductForm = ({service, fields}) => {
     const [data, setData] = useState({})
 
     const handleChange = (event) => {
-        const { name, value } = event.target
+        const { name, value, type } = event.target
         setData(prev => ({
             ...prev,
-            [name]: value
+            [name]: type === "number" ? Number(value) : value
         }))
     }
 
