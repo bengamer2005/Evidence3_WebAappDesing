@@ -21,7 +21,7 @@ const CreateUser = () => {
 
         if(result) {
             alert("User created")
-            
+            window.location.reload()
         } else {
             alert("Fail to create user")
         }

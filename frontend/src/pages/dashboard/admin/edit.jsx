@@ -34,12 +34,7 @@ const EditUser = () => {
         .then(() => {
             setForm(false)
             alert("User updated successfully")
-
-            setUserId(null)
-            setEmail("")
-            setUsername("")
-            setPassword("")
-            setRole("")
+            window.location.reload()
         })
         .catch((error) => console.error(error))
     }
