@@ -17,6 +17,7 @@ const ProductInput = (product) => {
 
         if(result) {
             alert("Product sell")
+            window.location.reload()
         } else {
             alert("Need to buy more units, send purchasing a request")
         }
