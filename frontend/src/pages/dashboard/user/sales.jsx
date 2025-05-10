@@ -10,7 +10,7 @@ const Sales = () => {
                 <Header/>
                 <ReturnButton link="/halcon-user/dashboard-user"></ReturnButton>
                 <h1>SALES</h1>
-                <p>este sera el apartado de sales, falta: form</p>
+                <p>Create new orders</p>
                 <Order/>
             </main>
         </>
