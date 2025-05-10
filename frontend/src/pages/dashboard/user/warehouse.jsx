@@ -3,7 +3,7 @@ import Header from "../../../components/header"
 import Order from "../../../hooks/getOrder"
 import Product from "../../../hooks/getProduct"
 import ReturnButton from "../../../components/returnButton"
-import ProductInput from "../../../components/productInput"
+import ProductInput from "../../../hooks/productInput"
 import "../../../styles/sellProduct.css"
 
 const Warehouse = () => {
