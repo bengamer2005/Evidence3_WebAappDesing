@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import 
 
 const Request = () => {
     const [requests, setRequests] = useState([])
@@ -21,7 +22,6 @@ const Request = () => {
                         <tr>
                             <th>REQUEST PRODUCT</th>
                             <th>REQUEST UNITS</th>
-                            <th>STATUS</th>
                             <th>CHANGE STATUS</th>
                         </tr>
                     </thead>
@@ -31,7 +31,6 @@ const Request = () => {
                             <tr key={request._id}>
                                 <td>{request.reqProduct}</td>
                                 <td>{request.reqUnit}</td>
-                                <td>{request.status}</td>
                             </tr>
                         ))}
                     </tbody>
