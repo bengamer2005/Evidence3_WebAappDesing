@@ -1,13 +1,13 @@
 import React from "react"
 
-const SellProduct = async ({product, subtractUnit}) => {
+const SellProduct = async ({productId, subtractUnit}) => {
     try {
-        const response = await fetch("", {
+        const response = await fetch("http://localhost:3000/halcon/inventory/productSubtract", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json" 
             },
-            body: JSON.stringify({ product, subtractUnit })
+            body: JSON.stringify({ productId, subtractUnit })
         })
 
         if(!response.ok) {
