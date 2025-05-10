@@ -2,7 +2,7 @@ import React from "react"
 
 const BuyProduct = async ({productId, addUnits}) => {
     try {
-        const response = await fetch("http://localhost:3000/halcon/inventory/productAdd". {
+        const response = await fetch("http://localhost:3000/halcon/inventory/productAdd", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
