@@ -18,7 +18,7 @@ const Create = async ({email, password, username, role}) => {
         const result = await response.json()
         return result
     } catch (error) {
-        console.error("Error de conexion, fallo el create", error);
+        console.error("Error de conexion, fallo el create", error)
     }
 }
 
