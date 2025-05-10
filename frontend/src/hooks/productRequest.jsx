@@ -19,7 +19,7 @@ const ProductReq = (product) => {
             alert("Request send")
             window.location.reload()
         } else {
-            alert("Need to buy more units, send purchasing a request")
+            alert("Fail to send request")
         }
     }
 
