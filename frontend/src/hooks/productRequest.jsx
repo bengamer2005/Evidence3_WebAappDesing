@@ -1,22 +1,23 @@
 import React, { useState } from "react"
-import SellProduct from "../services/sellProduct"
+import RequestProduct from "../services/requestProduct"
 import "../styles/sellProduct.css"
 
-const ProductInput = (product) => {
-    const [productId, setProductId] = useState("")
-    const [subtractUnit, setSubtractUnit] = useState("")
+const ProductReq = (product) => {
+    const [reqProduct, setReqProduct] = useState("")
+    const [reqUnit, setReqUnit] = useState("")
 
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        if(!productId || !subtractUnit) {
+        if(!reqProduct || !reqUnit) {
             return alert("All fields are required")
         }
 
-        const result = await SellProduct({productId, subtractUnit})
+        const result = await RequestProduct({reqProduct, reqUnit})
 
         if(result) {
-            alert("Product sell")
+            alert("Request send")
+            window.location.reload()
         } else {
             alert("Need to buy more units, send purchasing a request")
         }
@@ -26,8 +27,8 @@ const ProductInput = (product) => {
         <>
             <form onSubmit={handleSubmit}>
                 <div className="addTaskBox">
-                    <input id="taskInput" type="text" placeholder="PRODUCT ID" value={productId} onChange={(event) => setProductId(event.target.value)}/>
-                    <input id="taskInput" type="number" placeholder="UNITS" value={subtractUnit} onChange={(event) => setSubtractUnit(event.target.value)}/>
+                    <input id="taskInput" type="text" placeholder="REQUEST PRODUCT ID" value={reqProduct} onChange={(event) => setReqProduct(event.target.value)}/>
+                    <input id="taskInput" type="number" placeholder="REQUEST UNITS" value={reqUnit} onChange={(event) => setReqUnit(event.target.value)}/>
 
                     <button id="sendButton" type="submit">
                         <svg fill="none" viewBox="0 0 664 663">
@@ -47,4 +48,4 @@ const ProductInput = (product) => {
     )
 }
 
-export default ProductInput
+export default ProductReq

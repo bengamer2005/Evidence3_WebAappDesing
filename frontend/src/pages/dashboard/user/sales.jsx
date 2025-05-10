@@ -24,6 +24,7 @@ const Sales = () => {
 
         if(result) {
             alert("Order created")
+            window.location.reload()
         } else {
             alert("Fail to create order")
         }

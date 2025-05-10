@@ -4,6 +4,7 @@ import Order from "../../../hooks/getOrder"
 import Product from "../../../hooks/getProduct"
 import ReturnButton from "../../../components/returnButton"
 import ProductInput from "../../../hooks/productInput"
+import ProductReq from "../../../hooks/productRequest"
 import "../../../styles/sellProduct.css"
 
 const Warehouse = () => {
@@ -16,12 +17,10 @@ const Warehouse = () => {
                 <h1>WAREHOUSE</h1>
 
                 <h3>SELL PRODUCTS</h3>
-                <ProductInput>
-                </ProductInput>
+                <ProductInput/>
 
                 <h3>REQUESTS TO PURCHASING</h3>
-                <ProductInput>
-                </ProductInput>
+                <ProductReq/>
 
                 <h3>ORDERS</h3>
                 <Order/>
