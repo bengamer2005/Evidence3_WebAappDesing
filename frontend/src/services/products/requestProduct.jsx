@@ -1,13 +1,13 @@
 import React from "react"
 
-const RequestProduct = async ({reqProduct, reqUnit}) => {
+const RequestProduct = async ({productId, reqUnit}) => {
     try {
         const response = await fetch("http://localhost:3000/halcon/request/post", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json" 
             },
-            body: JSON.stringify({ reqProduct, reqUnit })
+            body: JSON.stringify({ productId, reqUnit })
         })
 
         if(!response.ok) {

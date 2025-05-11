@@ -14,7 +14,7 @@ const Warehouse = () => {
     ]
 
     const fields_req = [
-        {name: "reqProduct", type: "text", placeholder: "REQUESTED PRODUCT ID"},
+        {name: "productId", type: "text", placeholder: "REQUESTED PRODUCT ID"},
         {name: "reqUnit", type: "number", placeholder: "REQUESTED UNITS"}
     ]
 

@@ -15,6 +15,19 @@ const BuyProduct = async ({productId, addUnits}) => {
             return null
         }
 
+        const changeStatus = await fetch("http://localhost:3000/halcon/request/updateStatus", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({productId, status: false})
+        })
+
+        if(!changeStatus.ok) {
+            console.error("Fallo el cambiar el status")
+            return null
+        }
+
         const result = await response.json()
         return result
     } catch (error) {

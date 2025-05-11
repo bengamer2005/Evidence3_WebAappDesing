@@ -1,6 +1,9 @@
 const mongoose = require("mongoose")
 
 const RequestSchema = new mongoose.Schema({
+    productId: {
+        type: String
+    },
     reqProduct: {
         type: String
     },

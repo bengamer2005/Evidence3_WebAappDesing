@@ -42,6 +42,7 @@ const GetClientOrder = () => {
                             <th>ADDRESS</th>
                             <th>PRODUCTS ORDERS</th>
                             <th>CLIENT INFO</th>
+                            <th>STATUS</th>
                         </tr>
                     </thead>
 
@@ -53,6 +54,7 @@ const GetClientOrder = () => {
                                 <td>{order.street}, {order.city}, {order.state}</td>
                                 <td>{order.productNotes}</td>
                                 <td>{order.clientNum}, {order.invoiceNum}</td>
+                                <td>{order.status}</td>
                             </tr>
                         ))}
                     </tbody>

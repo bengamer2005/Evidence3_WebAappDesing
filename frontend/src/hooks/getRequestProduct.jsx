@@ -48,7 +48,7 @@ const Request = () => {
                     <tbody>
                         {requests.map((request) => (
                             <tr key={request._id}>
-                                <td>{request.reqProduct}</td>
+                                <td>{request.productId}</td>
                                 <td>{request.reqUnit}</td>
                                 <td>
                                     <button onClick={() => handleBuy(request)}>
