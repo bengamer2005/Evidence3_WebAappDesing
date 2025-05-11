@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Header from "../../../components/header"
-import Create from "../../../services/createUser"
+import Create from "../../../services/users/createUser"
 import ReturnButton from "../../../components/returnButton"
 import "../../../styles/createUser.css"
 

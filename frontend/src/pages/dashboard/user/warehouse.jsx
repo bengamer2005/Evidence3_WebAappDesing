@@ -3,8 +3,8 @@ import Order from "../../../hooks/getOrder"
 import Product from "../../../hooks/getProduct"
 import ReturnButton from "../../../components/returnButton"
 import ProductForm from "../../../components/productForm"
-import SellProduct from "../../../services/sellProduct"
-import RequestProduct from "../../../services/requestProduct"
+import SellProduct from "../../../services/products/sellProduct"
+import RequestProduct from "../../../services/products/requestProduct"
 import "../../../styles/sellProduct.css"
 
 const Warehouse = () => {
