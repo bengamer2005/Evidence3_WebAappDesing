@@ -1,6 +1,6 @@
 import React from "react"
 import Header from "../../components/header"
-import Order from "../../hooks/getOrder"
+import GetClientOrder from "../../hooks/getClientOrder"
 
 const Client = () => {
     return (
@@ -8,8 +8,8 @@ const Client = () => {
             <main>
                 <Header/>
                 <h1>CLIENT ORDER</h1>
-                <p>este sera el apartado de las ordenes de los clietnes, falta: form</p>
-                <Order/>
+                <p>Welocme, here are the details of your Order</p>
+                <GetClientOrder/>
             </main>
         </>
     )
