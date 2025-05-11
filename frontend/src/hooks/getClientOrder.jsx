@@ -1,16 +1,34 @@
-import {useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 
-const Order = () => {
-    const [orders, setOrders] = useState([])
+const GetClientOrder = () => {
+    const [clientOrder, setClientOrder] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/halcon/getOrder")
-        .then((res) => {
-            return res.json()
-        })
-        .then((data) => {
-            setOrders(data)
-        })
+        const getOrder = async () => {
+            try {
+                const token = localStorage.getItem("token")
+    
+                const response = await fetch("http://localhost:3000/halcon/getOneOrder", {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "Content-Type": "application/json"
+                    }
+                })
+    
+                if(!response.ok) {
+                    console.error("Fallo el GetClientORder");
+                    return null
+                }
+    
+                const result = await response.json()
+                setClientOrder([result])        
+            } catch (error) {
+                console.error("Error de conexion, fallo el GetClientORder", error);
+            }
+        }
+
+        getOrder()
     }, [])
 
     return (
@@ -28,7 +46,7 @@ const Order = () => {
                     </thead>
 
                     <tbody>
-                        {orders.map((order) => (
+                        {clientOrder.map((order) => (
                             <tr key={order._id}>
                                 <td>{order.name}</td>
                                 <td>{order.taxInfo}</td>
@@ -44,4 +62,4 @@ const Order = () => {
     )
 }
 
-export default Order
+export default GetClientOrder
