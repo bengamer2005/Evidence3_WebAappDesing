@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import Header from "../../../components/header"
 import Order from "../../../hooks/getOrder"
-import CreateOrder from "../../../services/createOrder"
+import CreateOrder from "../../../services/users/createOrder"
 import ReturnButton from "../../../components/returnButton"
 import "../../../styles/createUser.css"
 

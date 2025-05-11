@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "react-router"
 import { useNavigate } from "react-router"
 import Header from "../../components/header"
-import Login from "../../services/loginUser"
+import Login from "../../services/users/loginUser"
 import "../../styles/userView.css"
 
 const UserViews = () => {

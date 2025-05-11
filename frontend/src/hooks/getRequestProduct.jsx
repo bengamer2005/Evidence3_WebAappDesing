@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import ProductForm from "../components/productForm"
-import BuyProduct from "../services/buyProduct"
+import BuyProduct from "../services/products/buyProduct"
 import "../styles/formModal.css"
 
 const Request = () => {

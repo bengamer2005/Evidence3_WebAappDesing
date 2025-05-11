@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import { Link } from "react-router"
 import { useNavigate } from "react-router"
 import Header from "../../components/header"
-import Login from "../../services/loginClient"
+import Login from "../../services/clients/loginClient"
 import "../../styles/userView.css"
 
 const ClientView = () => {
