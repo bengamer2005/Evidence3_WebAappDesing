@@ -47,7 +47,6 @@ const postOrder = async (req, res) => {
 
 // Llama a todas las ordenes 
 const getOrders = async (req, res) => {
-
     try {
         const orders = await Client.find({})
         res.status(200).json(orders)
@@ -56,10 +55,20 @@ const getOrders = async (req, res) => {
     }
 }
 
-
+// Llama a una orden en especifico
+const getOneOrder = async (req, res) => {
+    try {
+        const {clientNum, invoiceNum} = req.user
+        const order = await Client.findOne({clientNum, invoiceNum})
+        res.status(200).json(order)
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+}
 
 module.exports = {
     getOrder,
     postOrder,
-    getOrders
+    getOrders,
+    getOneOrder
 }
