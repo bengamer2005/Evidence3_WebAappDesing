@@ -45,7 +45,7 @@ const Warehouse = () => {
 
     const handleStatus = async (order) => {
         try {
-            const response = await fetch("http://localhost:3000/halcon/changeStatusInRoute", {
+            const response = await fetch("https://evidence3-webaappdesing.onrender.com/halcon/changeStatusInRoute", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

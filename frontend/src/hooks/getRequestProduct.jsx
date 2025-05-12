@@ -9,7 +9,7 @@ const Request = () => {
     const [showForm, setShowForm] = useState(false)
 
     useEffect(() => {
-        fetch("http://localhost:3000/halcon/request/get")
+        fetch("https://evidence3-webaappdesing.onrender.com/halcon/request/get")
         .then((res) => {
             return res.json()
         })

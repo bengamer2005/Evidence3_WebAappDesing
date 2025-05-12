@@ -18,14 +18,14 @@ app.use(express.json())
 
 // CONECTA MI FRONTEND CON MI BACKEND, Y PERMITE LAS PETICIONES
 app.use(cors({
-    origin: "http://localhost:5173"
+    origin: "https://evidence3-webaappdesing-frontend.onrender.com"
 }))
 
 // SE ASIGNA PUERTO PARA EL BACKEND
-const port = 3000
-app.listen(port, () => {
-    console.log(`Servidor corriendo en http://localhost:${port}/halcon-client`)
-})
+// const port = 3000
+// app.listen(port, () => {
+//     console.log(`Servidor corriendo en http://localhost:${port}/halcon-client`)
+// })
 
 // RUTAS
 app.use("/halcon", userRoute)

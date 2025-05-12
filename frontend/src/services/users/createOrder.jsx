@@ -2,7 +2,7 @@ import React from "react"
 
 const CreateOrder = async ({name, taxInfo, state, city, street, productNotes}) => {
     try {
-        const response = await fetch("http://localhost:3000/halcon/order/create", {
+        const response = await fetch("https://evidence3-webaappdesing.onrender.com/halcon/order/create", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json" 

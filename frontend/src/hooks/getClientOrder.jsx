@@ -8,7 +8,7 @@ const GetClientOrder = () => {
             try {
                 const token = localStorage.getItem("token")
     
-                const response = await fetch("http://localhost:3000/halcon/getOneOrder", {
+                const response = await fetch("https://evidence3-webaappdesing.onrender.com/halcon/getOneOrder", {
                     method: "GET",
                     headers: {
                         "Authorization": `Bearer ${token}`,

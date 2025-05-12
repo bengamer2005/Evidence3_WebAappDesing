@@ -2,7 +2,7 @@ import React from "react"
 
 const RequestProduct = async ({productId, reqUnit}) => {
     try {
-        const response = await fetch("http://localhost:3000/halcon/request/post", {
+        const response = await fetch("https://evidence3-webaappdesing.onrender.com/halcon/request/post", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json" 
