@@ -26,6 +26,10 @@ const coreOptions = {
 app.use(cors(coreOptions))
 
 // SE ASIGNA PUERTO PARA EL BACKEND
+const PORT = process.env.PORT || 3000
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Servidor escuchando en el puerto ${PORT}`);
+})
 // const port = 3000
 // app.listen(port, () => {
 //     console.log(`Servidor corriendo en http://localhost:${port}/halcon-client`)
