@@ -25,7 +25,6 @@ const Sales = () => {
 
         if(result) {
             alert("Order created")
-            window.location.reload()
         } else {
             alert("Fail to create order")
         }
@@ -70,8 +69,6 @@ const Sales = () => {
 
             const result = await response.json()
             alert("Status change")
-
-            window.location.reload()
         } catch (error) {
             console.error("Error actualizando el status", error)
         }

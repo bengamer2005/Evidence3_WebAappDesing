@@ -59,8 +59,6 @@ const Warehouse = () => {
 
             const result = await response.json()
             alert("Status change")
-
-            window.location.reload()
         } catch (error) {
             console.error("Error actualizando el status", error)
         }

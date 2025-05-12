@@ -34,7 +34,6 @@ const EditUser = () => {
         .then(() => {
             setForm(false)
             alert("User updated successfully")
-            window.location.reload()
         })
         .catch((error) => console.error(error))
     }
