@@ -17,9 +17,13 @@ const app = express()
 app.use(express.json())
 
 // CONECTA MI FRONTEND CON MI BACKEND, Y PERMITE LAS PETICIONES
-app.use(cors({
-    origin: "https://evidence3-webaappdesing-frontend.onrender.com"
-}))
+const coreOptions = {
+    origin: "https://evidence3-webaappdesing-frontend.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true
+}
+app.use(cors(coreOptions))
 
 // SE ASIGNA PUERTO PARA EL BACKEND
 // const port = 3000
