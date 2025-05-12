@@ -51,7 +51,7 @@ const Sales = () => {
                     <button type="submit" className="submit">SUBMIT</button>
                 </form>
 
-                <Order/>
+                <Order endpont={"getInOrder"}/>
             </main>
         </>
     )

@@ -45,7 +45,26 @@ const postOrder = async (req, res) => {
     }
 }
 
-// Llama a todas las ordenes 
+
+// Cambia el status a In Process
+const statusInProcess = async (req, res) => {
+    const { clientNum, status } = req.body
+    try {
+        const order = await Client.findOne({clientNum})
+        if(!order) {
+            return res.status(404).json({ message: "Order no encontrada" })
+        }
+        
+        order.status = "In Process"
+        await order.save()
+        
+        res.status(200).json({ message: "Order actualizado", order })
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+}
+
+// Llama a todas las ordenes (PARA ADMIN)
 const getOrders = async (req, res) => {
     try {
         const orders = await Client.find({})
@@ -55,7 +74,7 @@ const getOrders = async (req, res) => {
     }
 }
 
-// Llama a una orden en especifico
+// Llama a una orden en especifico (PARA CLIENT)
 const getOneOrder = async (req, res) => {
     try {
         const {clientNum, invoiceNum} = req.user
@@ -66,9 +85,32 @@ const getOneOrder = async (req, res) => {
     }
 }
 
+const getInOrder = async (req, res) => {
+    try {
+        const status = "In Order"
+        const order = await Client.find({status})
+        res.status(200).json(order)
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+}
+
+const getInProcess = async (req, res) => {
+    try {
+        const status = "In Process"
+        const order = await Client.find({status})
+        res.status(200).json(order)
+    } catch (error) {
+        res.status(500).json({error: error.message})
+    }
+}
+
 module.exports = {
     getOrder,
     postOrder,
     getOrders,
-    getOneOrder
+    getOneOrder,
+    statusInProcess,
+    getInOrder,
+    getInProcess
 }

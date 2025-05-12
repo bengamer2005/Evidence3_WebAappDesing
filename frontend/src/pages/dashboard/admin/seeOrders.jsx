@@ -12,7 +12,7 @@ const SeeOrders = () => {
 
                 <h1>SEE ORDERS</h1>
                 <p>este sera el apartado de see orders</p>
-                <Order/>
+                <Order endpont={"getOrder"}/>
             </main>
         </>
     )

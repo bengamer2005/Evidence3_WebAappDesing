@@ -32,7 +32,7 @@ const Warehouse = () => {
                 <ProductForm service={RequestProduct} fields={fields_req}/>
 
                 <h3>ORDERS</h3>
-                <Order/>
+                <Order endpont={"getInProcess"}/>
                 <h3>PRODUCTS</h3>
                 <Product/>
             </main>
