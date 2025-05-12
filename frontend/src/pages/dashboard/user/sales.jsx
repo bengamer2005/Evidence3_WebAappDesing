@@ -13,6 +13,8 @@ const Sales = () => {
     const [street, setStreet] = useState("")
     const [productNotes, setProductNotes] = useState("")
 
+    const [clientNum, setClientNum] = useState("")
+
     const handleSubmit = async (event) => {
         event.preventDefault()
 
@@ -27,6 +29,29 @@ const Sales = () => {
             window.location.reload()
         } else {
             alert("Fail to create order")
+        }
+    }
+
+    const handleStatus = async (order) => {
+        try {
+            const response = await fetch("http://localhost:3000/halcon/changeStatusInProcess", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ clientNum: order.clientNum }) 
+            })
+
+            if(!response.ok) {
+                return alert("Fail to change the status")
+            }
+
+            const result = await response.json()
+            alert("Status change")
+
+            window.location.reload()
+        } catch (error) {
+            console.error("Error actualizando el status", error)
         }
     }
 
@@ -51,7 +76,7 @@ const Sales = () => {
                     <button type="submit" className="submit">SUBMIT</button>
                 </form>
 
-                <Order endpont={"getInOrder"}/>
+                <Order endpont={"getInOrder"} change={handleStatus}/>
             </main>
         </>
     )
