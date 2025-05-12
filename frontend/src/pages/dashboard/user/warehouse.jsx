@@ -1,3 +1,5 @@
+import React, { useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import Header from "../../../components/header"
 import Order from "../../../hooks/getOrder"
 import Product from "../../../hooks/getProduct"
@@ -8,6 +10,29 @@ import RequestProduct from "../../../services/products/requestProduct"
 import "../../../styles/sellProduct.css"
 
 const Warehouse = () => {
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+
+        if (!token) {
+            alert("No estás autenticado.")
+            return navigate("/login")
+        }
+
+        try {
+            const payload = JSON.parse(atob(token.split('.')[1]))
+            if (payload.role === "Warehouse") {
+                return null
+            } else {
+                alert("Acceso denegado: no tienes permisos de administrador.")
+                return navigate("/halcon-user/dashboard-user")
+            }
+        } catch (error) {
+            console.error("Token inválido", error)
+        }
+    }, [navigate])
+
     const fields_sell = [
         {name: "productId", type: "text", placeholder: "PRODUCT ID"},
         {name: "subtractUnit", type: "number", placeholder: "UNITS TO SELL"}

@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 import Header from "../../../components/header"
 import Order from "../../../hooks/getOrder"
 import CreateOrder from "../../../services/users/createOrder"
@@ -29,6 +30,29 @@ const Sales = () => {
             alert("Fail to create order")
         }
     }
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+
+        if (!token) {
+            alert("No estás autenticado.")
+            return navigate("/login")
+        }
+
+        try {
+            const payload = JSON.parse(atob(token.split('.')[1]))
+            if (payload.role === "Sales") {
+                return null
+            } else {
+                alert("Acceso denegado: no tienes permisos de administrador.")
+                return navigate("/halcon-user/dashboard-user")
+            }
+        } catch (error) {
+            console.error("Token inválido", error)
+        }
+    }, [navigate])
 
     const handleStatus = async (order) => {
         try {
