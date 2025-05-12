@@ -4,7 +4,7 @@ const Order = ({endpont, change}) => {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/halcon/" + endpont)
+        fetch("https://evidence3-webaappdesing.onrender.com/halcon/" + endpont)
         .then((res) => {
             return res.json()
         })

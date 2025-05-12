@@ -2,7 +2,7 @@ import React from "react"
 
 const Create = async ({email, password, username, role}) => {
     try {
-        const response = await fetch("http://localhost:3000/halcon/user/create", {
+        const response = await fetch("https://evidence3-webaappdesing.onrender.com/halcon/user/create", {
             method: "POST",
             headers: { 
                 "Content-Type": "application/json" 

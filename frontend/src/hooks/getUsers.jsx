@@ -5,7 +5,7 @@ const Users = ({edit}) => {
     const [users, setUsers] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/halcon/user/getUsers")
+        fetch("https://evidence3-webaappdesing.onrender.com/halcon/user/getUsers")
         .then((res) => {
             return res.json()
         })

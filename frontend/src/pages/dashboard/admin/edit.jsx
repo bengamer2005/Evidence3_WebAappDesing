@@ -25,7 +25,7 @@ const EditUser = () => {
 
         const user = { email, username, password, role }
 
-        fetch(`http://localhost:3000/halcon/user/update/${userId}`, {
+        fetch(`https://evidence3-webaappdesing.onrender.com/halcon/user/update/${userId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)

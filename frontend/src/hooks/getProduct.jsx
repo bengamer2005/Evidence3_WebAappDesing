@@ -4,7 +4,7 @@ const Product = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/halcon/inventory/products")
+        fetch("https://evidence3-webaappdesing.onrender.com/halcon/inventory/products")
         .then((res) => {
             return res.json()
         })
