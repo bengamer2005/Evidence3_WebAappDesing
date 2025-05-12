@@ -1,8 +1,33 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Header from "../../components/header"
 import Card from "../../components/card"
+import { useNavigate } from "react-router-dom"
 
 const DashboardUser = () => {
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const token = localStorage.getItem("token")
+
+        if (!token) {
+            alert("No estás autenticado.")
+            return navigate("/login")
+        }
+
+        try {
+            const payload = JSON.parse(atob(token.split('.')[1]))
+            if (payload.role === "Admin") {
+                alert("Acceso denegado: no tienes permisos de administrador.")
+                return navigate("/halcon-user")
+            } else if(!payload) {
+                alert("Acceso denegado: no tienes permisos de administrador.")
+                return navigate("/halcon-user")
+            }
+        } catch (error) {
+            console.error("Token inválido", error)
+        }
+    }, [navigate])
+
     return (
         <>
             <main>
