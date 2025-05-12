@@ -18,6 +18,29 @@ const Warehouse = () => {
         {name: "reqUnit", type: "number", placeholder: "REQUESTED UNITS"}
     ]
 
+    const handleStatus = async (order) => {
+        try {
+            const response = await fetch("http://localhost:3000/halcon/changeStatusInRoute", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ clientNum: order.clientNum }) 
+            })
+
+            if(!response.ok) {
+                return alert("Fail to change the status")
+            }
+
+            const result = await response.json()
+            alert("Status change")
+
+            window.location.reload()
+        } catch (error) {
+            console.error("Error actualizando el status", error)
+        }
+    }
+
     return (
         <>
             <main>
@@ -32,7 +55,7 @@ const Warehouse = () => {
                 <ProductForm service={RequestProduct} fields={fields_req}/>
 
                 <h3>ORDERS</h3>
-                <Order endpont={"getInProcess"}/>
+                <Order endpont={"getInProcess"} change={handleStatus}/>
                 <h3>PRODUCTS</h3>
                 <Product/>
             </main>

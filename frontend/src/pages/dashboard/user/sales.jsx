@@ -12,9 +12,7 @@ const Sales = () => {
     const [city, setCity] = useState("")
     const [street, setStreet] = useState("")
     const [productNotes, setProductNotes] = useState("")
-
-    const [clientNum, setClientNum] = useState("")
-
+    
     const handleSubmit = async (event) => {
         event.preventDefault()
 
