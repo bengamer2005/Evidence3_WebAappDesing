@@ -1,10 +1,10 @@
 import {useEffect, useState} from "react"
 
-const Order = () => {
+const Order = (status) => {
     const [orders, setOrders] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:3000/halcon/getOrder")
+        fetch("http://localhost:3000/halcon/" + status.endpont)
         .then((res) => {
             return res.json()
         })
