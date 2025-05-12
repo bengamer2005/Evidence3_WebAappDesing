@@ -1,0 +1,6 @@
+.upload-wrapper {
+  display: flex;
+  gap: 35%; 
+  flex-wrap: wrap;
+  justify-content: center; 
+}
