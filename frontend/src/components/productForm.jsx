@@ -25,7 +25,6 @@ const ProductForm = ({service, fields}) => {
 
         if(result) {
             alert("Process successfully")
-            window.location.reload()
         } else {
             alert("Fail, please check the prodcut ID or Units")
         }
