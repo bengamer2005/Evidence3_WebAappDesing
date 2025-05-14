@@ -16,6 +16,38 @@ defaultProducts()
 const app = express()
 app.use(express.json())
 
+// COSAS NUEVAS ELIMINAR CUANDO YA NO LO OCUPE
+const client = require('prom-client');
+const collectDefaultMetrics = client.collectDefaultMetrics;
+collectDefaultMetrics();
+
+const httpRequestsCounter = new client.Counter({
+  name: 'http_requests_total',
+  help: 'Número total de solicitudes HTTP',
+  labelNames: ['method', 'route', 'status_code']
+});
+
+app.use((req, res, next) => {
+  res.on('finish', () => {
+    httpRequestsCounter.inc({
+      method: req.method,
+      route: req.route?.path || req.path,
+      status_code: res.statusCode
+    });
+  });
+  next();
+});
+
+app.get('/metrics', async (req, res) => {
+  try {
+    res.set('Content-Type', client.register.contentType);
+    res.end(await client.register.metrics());
+  } catch (ex) {
+    res.status(500).end(ex);
+  }
+});
+
+
 // CONECTA MI FRONTEND CON MI BACKEND, Y PERMITE LAS PETICIONES
 const coreOptions = {
     origin: "https://evidence3-webaappdesing-frontend.onrender.com",
